@@ -1,10 +1,15 @@
 import React, { Component } from "react";
-import ProfilesPage from "../profiles-page/ProfilesPage";
+import NewsFeed from "../news-feed/NewsFeed";
 import "./App.css";
 
 class App extends Component {
   render() {
-    return <ProfilesPage />;
+    return (
+      <div className="App">
+        <h1>Hacker News Reader</h1>
+        <NewsFeed />
+      </div>
+    );
   }
 }
 

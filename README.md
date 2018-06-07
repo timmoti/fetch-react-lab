@@ -1,31 +1,41 @@
 # Fetch + React lab
 
 ### Getting started
-- `create-react-app fetch-react-lab`
+- Fork and clone repo
 - `cd fetch-react-lab`
-- `yarn start`
+- Get an NewsAPI API key [here](https://newsapi.org/s/hacker-news-api) (Click on the 'Get API key' button on the top right)
+- In your browser, make a GET request for the following URL: `https://newsapi.org/v2/everything?sources=hacker-news&apiKey=REPLACE_WITH_YOUR_API_KEY` (you should see a JSON response with news articles)
+- Create a new file in the project directory and name it `.env.local`. Place the following snippet in the file:
 
-### Tasks:
-- Create a `components` directory in `src` and move `App*.js` and `App.css` into `src/components/app`
-- Play around with the `fetch()` function and also the data returned by the API which we are using for this lab
-  - You can even make a GET request in your browser using the URL (https://randomuser.me/api?results=5)
+```
+REACT_APP_NEWSAPI_API_KEY=REPLACE_WITH_YOUR_API_KEY
+```
+  - Note: Because this file contains secrets, it is listed in `.gitignore` and will not be committed in `git`
+
+- `npm start`
+
+### Prerequisite knowledge
+- React
+- Getting data using `fetch()`
+- API keys 
+- How to load environment variables from .env (see [create-react-app documentation on this](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-development-environment-variables-in-env))
+- How to `.gitignore` secrets (such as your API keys)
+
+
+### Tasks
+- In `NewsFeed.js#componentDidMount()`, start by making a GET request to the defined URL using `fetch()`. Here's a short snippet to get your started
 
 ```javascript
-fetch("https://randomuser.me/api?results=5")
-  .then(data => {
-    return data.json();
+fetch(URL)
+  .then(response => {
+    return response.json();
   })
-  .then(data => console.log(data))
+  .then(responseBody => console.log(responseBody))
 ```
-- Create a `ProfilesPage` component (in `src/components/profiles-page/`)
-  - Initialize `this.state.profiles` as an empty array
-  - Fetch the data in `componentDidMount()` and assign the array from the JSON response to the component's stateby calling `this.setState({profiles: ...})`
 
-- Incrementally flesh out the data in `this.state.profiles`. Feel free to create components as you see fit.
-  - display first name: `this.state.profiles[0].name.first`
-  - add last name: `this.state.profiles[0].name.last`
-  - add title: `this.state.profiles[0].name.title`
-  - etc
-    - email
-    - address
-    - picture.thumbnail
+- In `NewsFeed.js#componentDidMount()`, call `setState` to store the articles returned from the fetch request in the state object of the `NewsFeed` component.
+
+- Incrementally flesh out the data in `this.state.articles`. Try to create new components (e.g. an `Article` component) as you see fit. 
+
+- Bonus: implement the following features in your app
+  - allow users to upvote / downvote articles

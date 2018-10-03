@@ -1,5 +1,12 @@
 # Fetch + React lab
 
+### Prerequisite knowledge
+- React
+- Getting data using `fetch()`
+- API keys 
+- How to load environment variables from .env (see [create-react-app documentation on this](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-development-environment-variables-in-env))
+- How to `.gitignore` secrets (such as your API keys)
+
 ### Getting started
 - Fork and clone repo
 - `cd fetch-react-lab`
@@ -10,20 +17,12 @@
 ```
 REACT_APP_NEWSAPI_API_KEY=REPLACE_WITH_YOUR_API_KEY
 ```
-  - Note: Because this file contains secrets, it is listed in `.gitignore` and will not be committed in `git`
+  - Note: Because this `.env.local` file contains secrets, it is listed in `.gitignore` and will not be committed in `git`
 
-- `npm start`
-
-### Prerequisite knowledge
-- React
-- Getting data using `fetch()`
-- API keys 
-- How to load environment variables from .env (see [create-react-app documentation on this](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-development-environment-variables-in-env))
-- How to `.gitignore` secrets (such as your API keys)
-
+- Run `npm start`
 
 ### Tasks
-- In `NewsFeed.js#componentDidMount()`, start by making a GET request to the defined URL using `fetch()`. Here's a short snippet to get your started
+- In `NewsFeed.js#componentDidMount()`, start by making a GET request to the defined URL using `fetch()`. Here's a short snippet to get your started. You can also use `async/await` syntax if you like.
 
 ```javascript
 fetch(URL)
@@ -38,4 +37,4 @@ fetch(URL)
 - Incrementally flesh out the data in `this.state.articles`. Try to create new components (e.g. an `Article` component) as you see fit. 
 
 - Bonus: implement the following features in your app
-  - allow users to upvote / downvote articles
+  - allow users to upvote / downvote articles  
